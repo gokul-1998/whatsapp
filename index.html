@@ -4,9 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>WhatsApp Redirect</title>
 </head>
 <body>
-  This page will help you to navigate to whatsapp
+  <h1>WhatsApp Redirect</h1>
+  <p>This page will help you navigate to WhatsApp.</p>
+
+  <form id="whatsappForm">
+    <label for="phoneNumber">Enter Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" required>
+    <button type="button" onclick="redirectToWhatsApp()">Go to WhatsApp</button>
+  </form>
+
+  <script>
+    function redirectToWhatsApp() {
+      // Get the entered phone number
+      var phoneNumber = document.getElementById("phoneNumber").value;
+
+      // Remove any non-digit characters (e.g., spaces, hyphens)
+      phoneNumber = phoneNumber.replace(/\D/g, '');
+
+      // Remove leading zeros
+      phoneNumber = phoneNumber.replace(/^0+/, '');
+
+      // Redirect to the WhatsApp link
+      window.location.href = 'https://wa.me/' + phoneNumber;
+    }
+  </script>
 </body>
 </html>
